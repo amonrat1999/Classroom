@@ -1,3 +1,5 @@
+import { environment } from './../../../environments/environment.prod';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +7,10 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  constructor() { }
+  constructor(public http:HttpClient) { }
+
+
+  public  getDataStudentAll(){
+
+  }
 }
