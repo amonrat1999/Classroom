@@ -1,4 +1,4 @@
-import { environment } from './../../../environments/environment.prod';
+import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -11,6 +11,6 @@ export class ApiService {
 
 
   public  getDataStudentAll(){
-
+    return this.http.get (`${environment.apiUrl}Classroom/GetdataStudentAll`)
   }
 }
