@@ -7,7 +7,7 @@ import { StudentComponent } from './Components/student/student.component';
 import { TeacherComponent } from './Components/teacher/teacher.component';
 import { ClassroomComponent } from './Components/classroom/classroom.component';
 import { NavbarComponent } from './Navbar/navbar.component';
-
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,9 @@ import { NavbarComponent } from './Navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClient
+
   ],
   providers: [],
   bootstrap: [AppComponent]
