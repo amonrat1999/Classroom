@@ -7,10 +7,22 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiService {
 
-  constructor(public http:HttpClient) { }
+  constructor(public http: HttpClient) { }
+
+  //student
+  public getDataStudentAll() {
+    return this.http.get(`${environment.apiUrl}Classroom/GetdataStudentAll`)
+  }
 
 
-  public  getDataStudentAll(){
-    return this.http.get(`${environment.apiUrl}Classroom​/GetdataStudentAll`)
+  //Teacher
+  public getDataTeacherAll() {
+    return this.http.get(`${environment.apiUrl}Classroom/GetdataTeacherAll`)
+  }
+
+
+  //Classroom
+  public getDataClassroom() {
+    return this.http.get(`${environment.apiUrl}Classroom/GetdataClassroomAll`)
   }
 }
