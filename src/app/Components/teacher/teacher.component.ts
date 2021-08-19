@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/Services/classroom/api.service';
 
 @Component({
   selector: 'app-teacher',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeacherComponent implements OnInit {
 
-  constructor() { }
+  constructor(public http: HttpClient , public callApi: ApiService) { }
 
   ngOnInit(): void {
+    this.getTeacherAll();
   }
 
+  getTeacherAll(){
+    this.callApi.getDataTeacherAll().subscribe( data =>{
+      console.log(data);
+      
+    })
+  }
 }

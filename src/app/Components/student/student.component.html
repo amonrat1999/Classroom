@@ -1,1 +1,51 @@
-<p>student works!</p>
+<div class="container">
+    <h1>
+        Student
+        
+        <!-- button Add -->
+        <button type="button" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 
+                    .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 
+                    2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                <path fill-rule="evenodd"
+                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+            </svg>
+            Add
+        </button>
+
+    </h1>
+
+    <!-- //ตาราง Student -->
+    <table>
+        <thead style="text-align: center;">
+            <tr class="table-info">
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Tel</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let data of this.dataStudent">
+                <td>{{data.studentId}}</td>
+                <td>{{data.studentName}}</td>
+                <td>{{data.studentAge}}</td>
+                <td>{{data.studentTel}}</td>
+
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal-1"
+                    style="margin-right: 30px; margin-top: 10px; margin-bottom: 10px; ">Edit</button>
+
+                <button type="button" class="btn btn-danger"
+                    style="margin-top: 10px; margin-bottom: 10px;">Delete</button>
+            </tr>
+        
+        </tbody>
+    </table>
+
+
+    
+</div>

@@ -11,20 +11,21 @@ import { ApiService } from 'src/app/Services/classroom/api.service';
 })
 export class StudentComponent implements OnInit {
 
-  student: student
+  student: student;
+  dataStudent: any;
 
   constructor(public http: HttpClient , public callApi: ApiService ) { 
   }
 
   ngOnInit(): void {
-    this.getStudentAll()
+    this.getStudentAll();
+    
   }
  
-  getStudentAll(){
+  getStudentAll(){ 
     this.callApi.getDataStudentAll().subscribe( data =>{
-     
       console.log(data);
-      
+      this.dataStudent = data;
     })
-  }  
+  }
 }

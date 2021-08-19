@@ -1,6 +1,11 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//Angular Materail
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatIconModule} from '@angular/material/icon';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +14,7 @@ import { StudentComponent } from './Components/student/student.component';
 import { TeacherComponent } from './Components/teacher/teacher.component';
 import { ClassroomComponent } from './Components/classroom/classroom.component';
 import { NavbarComponent } from './Navbar/navbar.component';
+
 
 
 @NgModule({
@@ -23,6 +29,10 @@ import { NavbarComponent } from './Navbar/navbar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
+    MatIconModule
 
   ],
   providers: [],
