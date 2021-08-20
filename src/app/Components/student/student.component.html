@@ -20,8 +20,7 @@
     <!-- //ตาราง Student -->
     <table>
         <thead style="text-align: center;">
-            <tr class="table-info">
-                <th>Student ID</th>
+            <tr class="table-info">               
                 <th>Name</th>
                 <th>Age</th>
                 <th>Tel</th>
@@ -30,9 +29,8 @@
         </thead>
 
         <tbody>
-            <tr *ngFor="let data of this.dataStudent">
-                <td>{{data.studentId}}</td>
-                <td>{{data.studentName}}</td>
+            <tr *ngFor="let data of this.dataStudent">                
+                <td >{{data.studentName}}</td>
                 <td>{{data.studentAge}}</td>
                 <td>{{data.studentTel}}</td>
 

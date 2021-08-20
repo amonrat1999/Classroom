@@ -9,6 +9,8 @@ import { ApiService } from 'src/app/Services/classroom/api.service';
 })
 export class TeacherComponent implements OnInit {
 
+  getDataTeacher: any
+
   constructor(public http: HttpClient , public callApi: ApiService) { }
 
   ngOnInit(): void {
@@ -18,7 +20,7 @@ export class TeacherComponent implements OnInit {
   getTeacherAll(){
     this.callApi.getDataTeacherAll().subscribe( data =>{
       console.log(data);
-      
+      this.getDataTeacher = data;
     })
   }
 }
