@@ -9,16 +9,17 @@ import { ApiService } from 'src/app/Services/api.service';
 })
 export class ClassroomComponent implements OnInit {
 
-  constructor(public http: HttpClient , public callApi: ApiService) { }
+  constructor(public http: HttpClient, public callApi: ApiService) { }
 
   ngOnInit(): void {
     this.getClassroomAll();
   }
 
-  getClassroomAll(){
-    this.callApi.getDataClassroom().subscribe( data =>{
+
+  getClassroomAll() {
+    this.callApi.getDataClassroom().subscribe(data => {
       console.log(data);
-      
+
     })
   }
 }

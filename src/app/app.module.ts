@@ -17,6 +17,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     TeacherComponent,
     ClassroomComponent,
     NavbarComponent,
+
 
   ],
   imports: [

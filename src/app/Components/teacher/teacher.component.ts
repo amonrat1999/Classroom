@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/Services/api.service';
 })
 export class TeacherComponent implements OnInit {
 
+
   getDataTeacher: any
 
   constructor(public http: HttpClient , public callApi: ApiService) { }
@@ -17,6 +18,16 @@ export class TeacherComponent implements OnInit {
     this.getTeacherAll();
   }
 
+  // button add
+  clickAdd(){
+    console.log("addButton");
+  }
+  // button edit
+  clickEdit(){
+    console.log("edit")
+  }
+
+  // Teacher All
   getTeacherAll(){
     this.callApi.getDataTeacherAll().subscribe( data =>{
       console.log(data);
