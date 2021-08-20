@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.container{
+    margin-top: 2rem;
+}
+.container h1{
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+.container h1 button{
+    width: 80px;
+    margin-left: 1rem;
+}
+
