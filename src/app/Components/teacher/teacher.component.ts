@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/Services/classroom/api.service';
+import { ApiService } from 'src/app/Services/api.service';
 
 @Component({
   selector: 'app-teacher',

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { student } from 'src/app/Model/classroom';
-import { ApiService } from 'src/app/Services/classroom/api.service';
+import { ApiService } from 'src/app/Services/api.service';
 
 
 @Component({
