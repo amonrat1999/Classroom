@@ -14,11 +14,15 @@
             </svg>
             Add
         </button>
+         
 
     </h1>
 
-    <!-- ตาราง Teacher -->
-    <table>
+
+
+
+      <!-- ตาราง Teacher -->
+      <table>
         <thead style="text-align: center;">
             <tr class="table-info">
                 <th>Name</th>
@@ -44,6 +48,35 @@
         </tbody>
     </table>
 
+
+     <!-- ตาราง Teacher -->
+     <table>
+        <thead style="text-align: center;">
+            <tr class="table-info">
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Tel</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of this.getDataTeacher">
+                <td>{{data.teacherName}}</td>
+                <td>{{data.subjectTaught}}</td>
+                <td>{{data.teacherTel}}</td>
+                
+
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal-1"
+                    style="margin-right: 30px; margin-top: 10px; margin-bottom: 10px; ">Edit</button>
+
+                <button type="button" class="btn btn-danger"
+                    style="margin-top: 10px; margin-bottom: 10px;">Delete</button>
+            </tr>
+        
+        </tbody>
+    </table>
+
+    
 
 
 

@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { StudentComponent } from './Components/student/student.component';
 import { TeacherComponent } from './Components/teacher/teacher.component';
 import { ClassroomComponent } from './Components/classroom/classroom.component';
-import { NavbarComponent } from './Navbar/navbar.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 
 
