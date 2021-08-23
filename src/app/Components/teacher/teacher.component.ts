@@ -38,7 +38,7 @@ export class TeacherComponent implements OnInit {
         position: 'center',
         icon: 'success',
         title: 'สำเร็จ!',
-        text: 'เพิ่มข้อมูล Student สำเร็จ',
+        text: 'เพิ่มข้อมูล Teacher สำเร็จ',
         timer: 300000,
       })
     }
@@ -75,7 +75,7 @@ export class TeacherComponent implements OnInit {
         position: 'center',
         icon: 'success',
         title: 'สำเร็จ!',
-        text: 'ลบข้อมูล student สำเร็จ ',
+        text: 'ลบข้อมูล Teacher สำเร็จ ',
         timer: 30000
       })
     })
