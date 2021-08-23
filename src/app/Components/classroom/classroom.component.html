@@ -1,20 +1,128 @@
 <div class="container">
-    <h1>
-        Classroom
-        <!-- button Add -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><svg
-                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-pencil-square" viewBox="0 0 16 16">
-                <path
-                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                <path fill-rule="evenodd"
-                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-            </svg>
-            Add
-        </button>
-    </h1>
+  <h1>
+    Classroom
+    <!-- button Add -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><svg
+        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
+        viewBox="0 0 16 16">
+        <path
+          d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+        <path fill-rule="evenodd"
+          d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+      </svg>
+      Add
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="exampleModalLabel">ClassroomName</h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <div class="card" style="width: 400px; margin: auto; border: 0px;">
+              <form [formGroup]="form" (ngSubmit)="add()">
+                <input class="form-control md-3 mt-3" type="text" formControlName="classroomName"
+                  [ngClass]="{'is-invalid': statusbtn && formcontroldata.classroomName.errors}"
+                  placeholder="Enter classroomName">
+                <div *ngIf="statusbtn && formcontroldata.classroomName.errors" class="invlid-feedback">
+                  <div *ngIf="formcontroldata.classroomName.errors.required">
+                    <p style="font-size: 12px; color: rgb(255, 2, 2);">กรุณากรอกข้อมูล</p>
+                  </div>
+                  <div *ngIf="formcontroldata.classroomName.errors.pattern">
+                    <p style="font-size: 12px; color: rgb(255, 2, 2);">กรุณากรอกข้อมูลa-z A-Z 0-9</p>
+                  </div>
+                </div>
+                <div class="modal-footer" >
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary" >Save </button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </h1>
 
 
 
 
+  <!-- //ตาราง Classroom-->
+  <table>
+    <thead style="text-align: center;">
+      <tr class="table-info">
+        <th>Name</th>
+        <th>Student</th>
+        <th>Teacher</th>
+        <th>AddStudent</th>
+        <th>AddTeacher</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let data of this.dataClassroom">
+        <td>{{data.classroomName}}</td>
+        <td>
+          <div *ngFor="let student of data.classStudent">
+            {{student.studentName}}
+          </div>
+        </td>
+        <td>
+          <div *ngFor="let teacher of data.classTeacher">
+            {{teacher.teacherName}}
+          </div>
+        </td>
+
+
+        <!-- Button AddStudent -->
+        <td>
+          <div class="btn-group dropright">
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+              Student
+            </button>
+            <div class="dropdown-menu">
+              <div *ngFor="let student of this.dataStudent"
+                (click)="addStudentInClassroom(data.classroomId,student.studentId)">
+                <a href="/classroom">
+                  <button type="button" class="btn btn-outline-secondary">
+                    {{student.studentName}}
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </td>
+
+        <!-- Button AddTeacher-->
+        <td>
+          <div class="btn-group dropright">
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+              Teacher
+            </button>
+            <div class="dropdown-menu">
+              <div *ngFor="let teacher of this.dataTeacher"
+                (click)="addTeacherInClassroom(data.classroomId,teacher.teacherId)">
+                <a href="/classroom">
+                  <button type="button" class="btn btn-outline-secondary">
+                    {{teacher.teacherName}}
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </td>
+
+        <button type="button" class="btn btn-danger" style="margin-top: 10px; margin-bottom: 10px;"
+          (click)="deleteClassroom(data.classroomId)">Delete</button>
+      </tr>
+    </tbody>
+  </table>
 </div>

@@ -14,6 +14,7 @@ import { StudentComponent } from './Components/student/student.component';
 import { TeacherComponent } from './Components/teacher/teacher.component';
 import { ClassroomComponent } from './Components/classroom/classroom.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -34,7 +35,9 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule,
+    FormsModule
 
   ],
   providers: [],
