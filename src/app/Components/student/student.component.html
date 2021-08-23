@@ -76,7 +76,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="margin: 0.5rem 2rem;">
                 <form [formGroup]="data" (ngSubmit)="add()">
                     <p> ชื่อ-นามสกุล : </p>
                     <input class="form-control" type="text" formControlName="studentName"
@@ -146,7 +146,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" style="padding: 1rem 2rem;">
+            <div class="modal-body" style="padding: 0.5rem 4rem;">
                 <div class="row">
                     <p> ชื่อ-นามสกุล : </p>
                     <input type="text" class="form-control" [(ngModel)]="data.studentName"
@@ -161,7 +161,7 @@
                     <input type="text" class="form-control" [(ngModel)]="data.studentTel" placeholder="กรอกเบอร์โทร">
                 </div>
                 <br>
-                <button type="button" class="btn btn-success" style="float: right;" (click)="editDataStudent()"
+                <button type="button" class="btn btn-success" style=" margin-left: 20rem;" (click)="editDataStudent()"
                     data-dismiss="modal">ยืนยัน</button>
             </div>
         </div>

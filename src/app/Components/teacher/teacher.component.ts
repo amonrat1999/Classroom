@@ -1,11 +1,10 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
+
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+
 import { ApiService } from 'src/app/Services/api.service';
 import Swal from 'sweetalert2';
-import { teacher } from 'src/app/Model/classroom';
-// import { teacher } from 'src/app/Model/classroom';
-// import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-teacher',
@@ -14,90 +13,88 @@ import { teacher } from 'src/app/Model/classroom';
 })
 export class TeacherComponent implements OnInit {
 
-  getDataTeacher: any
-  data: any;
-  statusbtn: boolean = false;
   teacherId: any;
+  dataTeacher: any;
+  data: any;
+  getData: any;
+  statusbtn: boolean = false
 
-
-  constructor(public http: HttpClient, public callApi: ApiService, form: FormBuilder) {
+  constructor(public form: FormBuilder, public callApi: ApiService) {
     this.data = form.group({
-      teacherName: [null, [Validators.required, Validators.pattern('[a-z A-Z ]*')]],
-      teacherTel: [null, [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(10), Validators.maxLength(10)]],
-      subjectTaught: [null, [Validators.required, Validators.pattern('[a-z A-Z]*')]]
+      teacherName: [null, [Validators.required]],
+      teacherTel: [null, [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(1), Validators.maxLength(2)]],
+      subjectTaught: [null, [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(10), Validators.maxLength(10)]]
     })
   }
-
   get formcontroldata() { return this.data.controls }
 
   add() {
-    this.statusbtn = true;
+    this.statusbtn = true
     console.log(this.data.valid);
     console.log(this.data.value);
     if (this.data.valid == true) {
       this.addDataTeacher();
       Swal.fire({
+        position: 'center',
         icon: 'success',
-        title: 'สำเร็จ',
-        text: 'เพิ่มข้อมูล Teacher สำเร็จ',
-        timer: 1000
+        title: 'สำเร็จ!',
+        text: 'เพิ่มข้อมูล Student สำเร็จ',
+        timer: 300000,
       })
-      this.getTeacherAll();
     }
   }
 
+
   ngOnInit(): void {
-    this.getTeacherAll();
+    this.getDataTeacherAll();
   }
 
 
-  // Teacher All
-  getTeacherAll() {
-    this.callApi.getDataTeacherAll().subscribe(data => {
+
+  getDataTeacherAll(){
+    this.callApi.getDataTeacherAll().subscribe( data =>{
       console.log(data);
-      this.getDataTeacher = data;
+      this.dataTeacher = data;
     })
   }
 
-  //ค้นหา teacher ด้วย id
-  getDataTeacherById(teacherId: string) {
-    this.callApi.getDataTeacherById(teacherId).subscribe(data => {
-      this.data = data;
-      console.log(data);
-    })
-  }
-
-  // Add Teacher
   addDataTeacher() {
     this.callApi.addDataTeacher(this.data.value).subscribe(data => {
-      this.getTeacherAll();
-      console.log(data);
-    })
-  }
-
-  // Edit Teacher
-  editDataTeacher() {
-    this.callApi.editDataTeacher(this.data).subscribe(data => {
-      this.getTeacherAll();
+      window.location.reload();
+      this.getDataTeacherAll()
       console.log(data);
       
     })
-    console.log("แก้ไขข้อมูลสำเร็จแล้ว");
   }
 
-  // Delete Teacher
-  deleteDataTeacher(teacherId) {
+  deleteDataTeacher(teacherId: string) {
     this.callApi.deleteDataTeacher(teacherId).subscribe(data => {
+      this.getDataTeacherAll()
+      console.log("ลบข้อมูลนักศึกษาสำเร็จ");
       Swal.fire({
+        position: 'center',
         icon: 'success',
-        title: 'สำเร็จ',
-        text: 'ลบข้อมูล Teacher สำเร็จ',
-        timer: 1000
+        title: 'สำเร็จ!',
+        text: 'ลบข้อมูล student สำเร็จ ',
+        timer: 30000
       })
-      console.log("ลบข้อมูลสำเร็จแล้ว");
-      this.getTeacherAll();
+    })
+  }
+
+
+  editDataTeacher() {
+    this.callApi.editDataTeacher(this.data).subscribe(data => {
+      this.getDataTeacherAll()
+      console.log("แก้ไขข้อมูลนักศึกษาสำเร็จ")
     })
 
   }
+  
 
+  getDataTeacherById(teacherId: string) {
+    this.callApi.getDataTeacherById(teacherId).subscribe(data => {
+      this.data = data;
+      console.log(this.data);
+    })
+  }
 }

@@ -19,8 +19,8 @@ export class StudentComponent implements OnInit {
   getData: any;
   statusbtn: boolean = false
 
-  constructor(private http: HttpClient, formbd: FormBuilder, public callApi: ApiService) {
-    this.data = formbd.group({
+  constructor( form: FormBuilder, public callApi: ApiService) {
+    this.data = form.group({
       studentName: [null, [Validators.required]],
       studentAge: [null, [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(1), Validators.maxLength(2)]],
       studentTel: [null, [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(10), Validators.maxLength(10)]]
