@@ -5,7 +5,7 @@ import { StudentComponent } from './Components/student/student.component';
 import { TeacherComponent } from './Components/teacher/teacher.component';
 
 const routes: Routes = [
-  { path: '' , redirectTo: 'classroom',pathMatch: 'full'},
+  { path: '' , redirectTo: 'student',pathMatch: 'full'},
   { path: 'student' , component: StudentComponent},
   { path: 'teacher' , component: TeacherComponent},
   { path: 'classroom' , component: ClassroomComponent},
