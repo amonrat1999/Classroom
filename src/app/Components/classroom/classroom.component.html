@@ -13,7 +13,7 @@
       Add
     </button>
 
-    <!-- Modal -->
+    <!-- Modal Add -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -24,27 +24,20 @@
             </button>
           </div>
           <div class="modal-body">
-
-            <div class="card" style="width: 400px; margin: auto; border: 0px;">
-              <form [formGroup]="form" (ngSubmit)="add()">
-                <input class="form-control md-3 mt-3" type="text" formControlName="classroomName"
-                  [ngClass]="{'is-invalid': statusbtn && formcontroldata.classroomName.errors}"
-                  placeholder="Enter classroomName">
-                <div *ngIf="statusbtn && formcontroldata.classroomName.errors" class="invlid-feedback">
-                  <div *ngIf="formcontroldata.classroomName.errors.required">
-                    <p style="font-size: 12px; color: rgb(255, 2, 2);">กรุณากรอกข้อมูล</p>
-                  </div>
-                  <div *ngIf="formcontroldata.classroomName.errors.pattern">
-                    <p style="font-size: 12px; color: rgb(255, 2, 2);">กรุณากรอกข้อมูลa-z A-Z 0-9</p>
-                  </div>
+            <form [formGroup]="form" (ngSubmit)="add()">
+              <input class="form-control md-3 mt-3" type="text" formControlName="classroomName"
+                [ngClass]="{'is-invalid': statusbtn && formcontroldata.classroomName.errors}"
+                placeholder="Enter ClassroomName">
+              <div *ngIf="statusbtn && formcontroldata.classroomName.errors" class="invlid-feedback">
+                <div *ngIf="formcontroldata.classroomName.errors.required">
+                  <p style="font-size: 12px; color: rgb(255, 2, 2);">กรุณากรอกข้อมูล</p>
                 </div>
-                <div class="modal-footer" >
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary" >Save </button>
+                <div *ngIf="formcontroldata.classroomName.errors.pattern">
+                  <p style="font-size: 12px; color: rgb(255, 2, 2);">กรุณากรอกข้อมูลa-z A-Z 0-9</p>
                 </div>
-              </form>
-            </div>
-
+              </div>
+              <button type="submit" class="btn btn-primary">Save </button>
+            </form>
           </div>
         </div>
       </div>
@@ -85,14 +78,21 @@
         <!-- Button AddStudent -->
         <td>
           <div class="btn-group dropright">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" fill="currentColor"
+                class="bi bi-people-fill" viewBox="0 0 16 16">
+                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path fill-rule="evenodd"
+                  d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
+                <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+              </svg>
               Student
             </button>
             <div class="dropdown-menu">
               <div *ngFor="let student of this.dataStudent"
                 (click)="addStudentInClassroom(data.classroomId,student.studentId)">
                 <a href="/classroom">
-                  <button type="button" class="btn btn-outline-secondary">
+                  <button type="button" class="btn btn-light">
                     {{student.studentName}}
                   </button>
                 </a>
@@ -104,24 +104,40 @@
         <!-- Button AddTeacher-->
         <td>
           <div class="btn-group dropright">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" fill="currentColor"
+                class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path fill-rule="evenodd"
+                  d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+              </svg>
               Teacher
             </button>
             <div class="dropdown-menu">
               <div *ngFor="let teacher of this.dataTeacher"
                 (click)="addTeacherInClassroom(data.classroomId,teacher.teacherId)">
                 <a href="/classroom">
-                  <button type="button" class="btn btn-outline-secondary">
+                  <button type="button" class="btn btn-light">
                     {{teacher.teacherName}}
                   </button>
                 </a>
+
               </div>
             </div>
           </div>
         </td>
 
+        <!-- Button Delete -->
         <button type="button" class="btn btn-danger" style="margin-top: 10px; margin-bottom: 10px;"
-          (click)="deleteClassroom(data.classroomId)">Delete</button>
+          (click)="deleteClassroom(data.classroomId)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
+            viewBox="0 0 16 16">
+            <path
+              d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+            <path fill-rule="evenodd"
+              d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+          </svg>
+          Delete</button>
       </tr>
     </tbody>
   </table>

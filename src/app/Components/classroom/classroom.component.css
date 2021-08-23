@@ -22,3 +22,21 @@ table tbody{
 table tbody tr{
  border: 0.5px solid grey;
 }
+.modal-body{
+  margin: 0rem 1.5rem;
+  
+}
+.modal-body button{
+  margin-top: 1rem;
+  float: right ;
+}
+.dropdown-menu{ 
+  text-align: center; 
+}
+.dropdown-menu button{
+  width: 90%;
+  margin: 0px 0px;
+}   
+.dropdown-menu .btn{
+  font-size: 13px;
+}   

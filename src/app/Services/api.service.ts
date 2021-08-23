@@ -35,22 +35,27 @@ export class ApiService {
 
   //Teacher
   public getDataTeacherAll() {
-    return this.http.get(`${environment.apiUrl}Classroom/GetdataTeacherAll`)
+    // return this.http.get(`${environment.apiUrl}Classroom/GetdataTeacherAll`)
+    return this.http.get(`${environment.apiUrl}Classroom/GetdataTeacherAll`);
   }
   //Teacher ID
   public getDataTeacherById(teacherId: string) {
-    return this.http.get(`${environment.apiUrl}​GetdataTeacherByid​/${teacherId}`)
+    // return this.http.get(`${environment.apiUrl}Classroom/GetdataTeacherByid/${teacherId}`);
+    return this.http.get(`${environment.apiUrl}Classroom/GetdataTeacherByid/${teacherId}`);
   }
   // Add Teacher
   public addDataTeacher(teacherId : string) {
-    return this.http.post(`${environment.apiUrl}Classroom/AddDataTeacher`, teacherId)
+    // return this.http.post(`${environment.apiUrl}Classroom/AddDataTeacher`, teacherId);
+    return this.http.post(`${environment.apiUrl}Classroom/AddDataTeacher`, teacherId);
   }
   // Edit Teacher
   editDataTeacher(teacherId: any) {
+    // return this.http.put(`${environment.apiUrl}Classroom/EditDataTeacher`, teacherId);
     return this.http.put(`${environment.apiUrl}Classroom/EditDataTeacher`, teacherId);
   }
   // Delete Teacher
   deleteDataTeacher(teacherId: string) {
+    // return this.http.delete(`${environment.apiUrl}Classroom/DeleteDataTeacher/${teacherId}`);
     return this.http.delete(`${environment.apiUrl}Classroom/DeleteDataTeacher/${teacherId}`);
   }
  
