@@ -22,8 +22,8 @@ export class TeacherComponent implements OnInit {
   constructor(public form: FormBuilder, public callApi: ApiService) {
     this.data = form.group({
       teacherName: [null, [Validators.required]],
-      teacherTel: [null, [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(10), Validators.maxLength(10)]],
-      subjectTaught: [null, [Validators.required,]]
+      teacherTel: [null, [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(1), Validators.maxLength(2)]],
+      subjectTaught: [null, [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(10), Validators.maxLength(10)]]
     })
   }
   get formcontroldata() { return this.data.controls }
